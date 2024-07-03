@@ -7,9 +7,8 @@ class ImageGen():
         self.image = Image.new("RGB", (500, 500), "white")
         self.width = self.image.width
         self.height = self.image.height
-
+        
         # Create a new image with white background
-        # Initialize the drawing context (이미지를 그리는 도구)
         self.draw = ImageDraw.Draw(self.image) 
 
     def code(self, word):
@@ -29,33 +28,32 @@ class ImageGen():
 
         self.draw.text((text_x, text_y), word, fill="black", font=font)
 
-    def number(self, level):
+    def number(self, number):
         current_directory = os.path.dirname(os.path.abspath(__file__))
         font_path = os.path.join(current_directory, "NanumGothicBold.ttf")
         font_size = 150
         font = ImageFont.truetype(font_path, font_size)
 
-        text_width, text_height = self.getSize(level, font)
+        text_width, text_height = self.getSize(number, font)
         # Calculate text position
         text_x = (self.width  - text_width) // 2
         text_y = (self.height - text_height) // 2 + 40
 
-        self.draw.text((text_x, text_y), level, fill="black", font=font)
+        self.draw.text((text_x, text_y), number, fill="black", font=font)
 
     def saveToFile(self, filename):
         # Save the image
         self.image.save(filename, format='JPEG')
-
 
     def getSize(self, text, font):
         text_left, text_top, text_right, text_bottom =  self.draw.textbbox(text=text, font=font,xy=[0,0])
         text_width, text_height = (text_right - text_left, text_bottom - text_top)
         return (text_width, text_height)
 
-
     def makeImage(self, word, number):
+        # Reset Image
         self.__init__()
-        # Create word directory
+
         self.code(word)
         self.number(number)
         # Save to file in the ".\result" directory with word+number name
@@ -90,4 +88,4 @@ if __name__ == "__main__":
     print(list)
     for i in list:
         a.makeImage(i[0], i[1])
-#    a.makeImage("MCC", "33002")
+    a.makeImage("MCC", "33002")

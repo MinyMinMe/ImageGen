@@ -37,7 +37,7 @@ ImageGen 클래스를 초기화합니다:
 
 지정된 text와 font의 너비와 높이를 계산합니다.
 
-### makeImage(word, number)
+### `makeImage(word, number)`
 
 지정된 word와 number로 이미지를 생성합니다:
 
@@ -67,3 +67,5 @@ if __name__ == "__main__":
 ```
 
 - 결과는 `./result/` 디렉토리에 자동으로 저장됩니다.
+- 결과의 샘플
+  ![alt text](./result/MCC33002.jpg)
