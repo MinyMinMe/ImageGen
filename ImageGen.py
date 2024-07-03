@@ -25,7 +25,7 @@ class ImageGen():
         text_width, text_height = self.getSize(word, font)
         # Calculate text position
         text_x = (self.width  - text_width) // 2
-        text_y = (self.height - text_height) // 2 - 150
+        text_y = (self.height - text_height) // 2 - 100
 
         self.draw.text((text_x, text_y), word, fill="black", font=font)
 
@@ -38,7 +38,7 @@ class ImageGen():
         text_width, text_height = self.getSize(level, font)
         # Calculate text position
         text_x = (self.width  - text_width) // 2
-        text_y = (self.height - text_height) // 2 + 50
+        text_y = (self.height - text_height) // 2 + 40
 
         self.draw.text((text_x, text_y), level, fill="black", font=font)
 
@@ -83,8 +83,6 @@ class ImageGen():
         workbook.close()
         
         return data_lists
-
-
 
 if __name__ == "__main__":
     a = ImageGen()
